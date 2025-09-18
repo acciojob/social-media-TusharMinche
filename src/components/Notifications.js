@@ -1,32 +1,31 @@
-import React from "react";
-   
-const Notifications = ({ notifications, onRefresh }) => {
+
+import preDefinedNotifications from "../data/preDefinedNotifications";
+
+export default function Notifications({ notifications, setNotifications }) {
+  const handleRefresh = () => {
+    setNotifications(preDefinedNotifications);
+  };
+
   return (
-    <section className="notifications">
+    <section>
       <h2>Notifications</h2>
-      <button
-        type="button"
-        className="button"
-        onClick={() => {
-          if (typeof onRefresh === "function") onRefresh();
-        }}
-      >
+      <button onClick={handleRefresh} data-cy="refresh-btn">
         Refresh Notifications
       </button>
-
-      <section className="notificationsList">
-        {notifications.length === 0 ? null : (
-          <div>
-            {notifications.map((n) => (
-              <div key={n.id} className="notification-item">
-                {n.message}
-              </div>
-            ))}
-          </div>
+      <div>
+        {notifications.length === 0 ? (
+          <p>No notifications yet</p>
+        ) : (
+          notifications.map((n) => (
+            <div key={n.id}>
+              <strong>{n.user}</strong> {n.message}
+              <p>
+                <i>{new Date(n.time).toLocaleTimeString()}</i>
+              </p>
+            </div>
+          ))
         )}
-      </section>
+      </div>
     </section>
   );
-};
-
-export default Notifications;
+}

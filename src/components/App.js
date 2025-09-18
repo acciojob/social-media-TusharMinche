@@ -68,7 +68,7 @@ const preDefinedPosts = [
 function App() {
   const [posts, setPosts] = useState(preDefinedPosts);
   const [users] = useState(["Uriah Pagac", "Lauran Bednar", "Magnus Gislason"]);
-  const [notifications, setNotifications] = useState(preDefinedNotifications);
+  const [notifications, setNotifications] = useState([]);
 
   // 👇 wrapper to add new posts
   const onAddPost = (newPost) => {

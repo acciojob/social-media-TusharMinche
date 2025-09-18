@@ -1,17 +1,12 @@
-import React from "react";
-import { Link } from "react-router-dom";
 
-const PostHeader = () => {
+import { NavLink } from "react-router-dom";
+
+export default function PostHeader() {
   return (
-    <header className="header">
-      <h1 className="logo">GenZ</h1>
-      <nav className="nav">
-        <Link to="/">Posts</Link>
-        <Link to="/users">Users</Link>
-        <Link to="/notifications">Notifications</Link>
-      </nav>
-    </header>
+    <nav>
+      <NavLink to="/" data-cy="posts-tab">Posts</NavLink>
+      <NavLink to="/users" data-cy="users-tab">Users</NavLink>
+      <NavLink to="/notifications" data-cy="notifications-tab">Notifications</NavLink>
+    </nav>
   );
-};
-
-export default PostHeader;
+}
