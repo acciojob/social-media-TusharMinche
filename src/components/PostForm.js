@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 
 export default function PostForm({ users, onAddPost }) {
   const [title, setTitle] = useState("");
