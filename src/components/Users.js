@@ -1,19 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Users = ({ users }) => {
+export default function Users({ users }) {
   return (
-    <div>
+    <section>
       <h2>Users</h2>
       <ul>
-        {users.map((user, index) => (
-          <li key={index}>
-            <Link to={`/users/${index}`}>{user}</Link>
+        {users.map((u, idx) => (
+          <li key={idx}>
+            <Link to={`/users/${idx}`}>{u}</Link>  {/* ✅ Cypress expects <a> */}
           </li>
         ))}
       </ul>
-    </div>
+    </section>
   );
-};
-
-export default Users;
+}

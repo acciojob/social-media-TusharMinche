@@ -49,6 +49,7 @@ function App() {
 
   return (
     <div className="App">
+      <h1>GenZ</h1> 
       <PostHeader />
       <Routes>
         <Route

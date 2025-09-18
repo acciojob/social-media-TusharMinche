@@ -16,15 +16,20 @@ export default function PostForm({ users, onAddPost }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label>Post Title:</label>
+      <label htmlFor="postTitle">Post Title:</label>
       <input
+        id="postTitle"
+        type="text"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
-        placeholder="Enter post title"
       />
 
-      <label>Author:</label>
-      <select value={author} onChange={(e) => setAuthor(e.target.value)}>
+      <label htmlFor="postAuthor">Author:</label>
+      <select
+        id="postAuthor"
+        value={author}
+        onChange={(e) => setAuthor(e.target.value)}
+      >
         {users.map((u, idx) => (
           <option key={idx} value={u}>
             {u}
@@ -32,14 +37,13 @@ export default function PostForm({ users, onAddPost }) {
         ))}
       </select>
 
-      <label>Content:</label>
+      <label htmlFor="postContent">Content:</label>
       <textarea
+        id="postContent" 
         value={content}
         onChange={(e) => setContent(e.target.value)}
-        placeholder="Write something..."
       />
 
-      {/* ✅ Cypress expects button inside form */}
       <button type="submit">Save Post</button>
     </form>
   );

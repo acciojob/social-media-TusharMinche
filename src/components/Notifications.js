@@ -1,4 +1,4 @@
-
+import React from "react";  
 import preDefinedNotifications from "../data/preDefinedNotifications";
 
 export default function Notifications({ notifications, setNotifications }) {
